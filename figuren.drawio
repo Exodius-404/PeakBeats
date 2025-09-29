@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net">
+  <diagram name="Figuren UML" id="uml1">
+    <mxGraphModel dx="1242" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        
+        <!-- Abstrakte Klasse Figur -->
+        <mxCell id="Figur" value="&lt;&lt;abstract&gt;&gt;&#xa;Figur" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="260" y="80" width="160" height="160" as="geometry"/>
+        </mxCell>
+        <mxCell id="FigurAttr" value="- _farbe: str" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;" vertex="1" parent="Figur">
+          <mxGeometry y="40" width="160" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="FigurMeth1" value="+ set_farbe(f: str)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;" vertex="1" parent="Figur">
+          <mxGeometry y="60" width="160" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="FigurMeth2" value="+ get_farbe(): str" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;" vertex="1" parent="Figur">
+          <mxGeometry y="80" width="160" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="FigurMeth3" value="&lt;&lt;abstract&gt;&gt;&#xa;+ berechne_flaeche(): float" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontStyle=2;spacingLeft=4;" vertex="1" parent="Figur">
+          <mxGeometry y="100" width="160" height="20" as="geometry"/>
+        </mxCell>
+        
+        <!-- Klasse Kreis -->
+        <mxCell id="Kreis" value="Kreis" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="320" width="160" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="KreisAttr" value="- radius: float" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;" vertex="1" parent="Kreis">
+          <mxGeometry y="40" width="160" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="KreisMeth" value="+ berechne_flaeche(): float" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;" vertex="1" parent="Kreis">
+          <mxGeometry y="60" width="160" height="20" as="geometry"/>
+        </mxCell>
+        
+        <!-- Klasse Rechteck -->
+        <mxCell id="Rechteck" value="Rechteck" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="480" y="320" width="160" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="RechteckAttr1" value="- breite: float" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;" vertex="1" parent="Rechteck">
+          <mxGeometry y="40" width="160" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="RechteckAttr2" value="- hoehe: float" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;" vertex="1" parent="Rechteck">
+          <mxGeometry y="60" width="160" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="RechteckMeth" value="+ berechne_flaeche(): float" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;" vertex="1" parent="Rechteck">
+          <mxGeometry y="80" width="160" height="20" as="geometry"/>
+        </mxCell>
+        
+        <!-- Verbindungen -->
+        <mxCell id="Edge1" style="endArrow=block;endFill=0;" edge="1" parent="1" source="Kreis" target="Figur">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="Edge2" style="endArrow=block;endFill=0;" edge="1" parent="1" source="Rechteck" target="Figur">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,16 @@
+issu boart: 
+
+end datum darf nicht hinter dem start datum sein X
+liferrung soll eigenständig berechnet werden X
+preis soll je nach datum berechnet werden (bei 2 tagen dann originalpreis - 30%) X
+wenn man im admin panel preise ändert sollen diese preis änderrungen in der preis schätzung berücksichtigt werden X
+nachrichten kasten soll nicht kleiner sein als er am anfang ist und auch nicht aus dem bild vergrößert werden können X
+anfrage soll abgesendet werden können mit netter nachricht und alles soll sich zurücksetzen X
+Impressum muss erstellt werden X
+AGB Pop Up (Optional) X
+
+
+backend soll aufgebaut werden (datenbank,  API anfragen, Admin panel, preisliste)
+
+
+        console.log('Formular abgeschickt:', JSON.stringify(sortedFormData, null, 2));

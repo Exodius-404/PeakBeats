@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PeakBeats – PA-Anlagen Vermietung</title>
+  <meta name="description" content="PeakBeats vermietet leistungsstarke PA-Anlagen, Lautsprecher, Subwoofer & Zubehör für Events jeder Größe. Einfach anfragen & liefern lassen." />
+  <meta property="og:title" content="PeakBeats – PA-Anlagen Vermietung" />
+  <meta property="og:description" content="Leistungsstarke PA-Anlagen, faire Preise, einfache Buchung.">
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="Bilder/logo.png" />
+  <link rel="preload" as="image" href="assets/hero.jpg">
+  <link rel="stylesheet" href="peakbeats.css" />
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header class="header">
+    <div class="container nav">
+      <a class="logo" href="#top" aria-label="PeakBeats Startseite">
+        <img src="Bilder/logo.png" alt="" class="logo-img" />
+        <span class="logo-text">PeakBeats</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">
+        <span class="burger"></span>
+      </button>
+
+      <nav class="nav-links" aria-label="Hauptnavigation">
+        <a href="#leistungen">Leistungen</a>
+        <a href="#pakete">Pakete</a>
+        <a href="#produkte">Produkte</a>
+        <a href="#faq">FAQ</a>
+        <a href="#kontakt" class="btn btn--ghost">Kontakt</a>
+        <a href="#anfrage" class="btn btn--primary">Jetzt anfragen</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="hero-media" role="img" aria-label="Konzertmenge vor Bühne mit Lautsprechern"></div>
+    <div class="container hero-content">
+      <h1 id="hero-title">Mehr Druck. Mehr Klarheit. <span class="accent">PeakBeats</span>.</h1>
+      <p class="lead">
+        Miete hochwertige PA-Anlagen, Lautsprecher & Subwoofer – optional mit Lieferung & Aufbau.
+      </p>
+      <div class="hero-cta">
+        <a href="#anfrage" class="btn btn--primary btn--xl">Angebot anfordern</a>
+        <a href="#pakete" class="btn btn--ghost btn--xl">Pakete ansehen</a>
+      </div>
+      <ul class="trust">
+        <li>✓ Optional: Lieferung & Aufbau</li>
+        <li>✓ 24/7 Notfall-Support</li>
+        <li>✓ Faire, transparente Preise</li>
+      </ul>
+    </div>
+    <div class="hero-badge">PA-Vermietung</div>
+  </section>
+
+  <!-- Leistungen -->
+  <section class="section" id="leistungen" aria-labelledby="leistungen-title">
+    <div class="container">
+      <h2 id="leistungen-title">Was wir liefern</h2>
+      <p class="section-intro">Komplettservice für Gigs, Firmenfeiern, Festivals & Privat-Events.</p>
+
+      <div class="grid grid-3">
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">🎚️</div>
+          <h3>Planung & Beratung</h3>
+          <p>Wir dimensionieren die Anlage exakt nach Location, Publikum und Musikstil.</p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">📦</div>
+          <h3>Anlieferung & Aufbau</h3>
+          <p>Optional zubuchbar: Lieferung, Aufbau und Soundcheck durch unser Team.</p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">🛠️</div>
+          <h3>Betreuung & Support</h3>
+          <p>Optionaler Tontechniker, 24/7 Notfall-Hotline und Ersatzgeräte.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pakete -->
+  <section class="section section--alt" id="pakete" aria-labelledby="pakete-title">
+    <div class="container">
+      <h2 id="pakete-title">Mietpakete</h2>
+      <p class="section-intro">Preise sind Richtwerte <strong>zzgl. Lieferung & Aufbau</strong> (optional buchbar). Endpreis nach Beratung & Verfügbarkeit.</p>
+
+      <div class="grid grid-3">
+        <article class="price-card">
+          <h3>Small Gig</h3>
+          <p class="muted">Bis ~80 Personen</p>
+          <ul class="feature-list">
+            <li>2× Tops (12")</li>
+            <li>1× Subwoofer (15")</li>
+            <li>Mischpult, 2× Mikro</li>
+            <li>Stative, Kabelsatz</li>
+          </ul>
+          <div class="price">ab <strong>149€</strong> / Tag <span class="suffix">(ohne Lieferung)</span></div>
+          <a href="#anfrage" class="btn btn--primary" data-package="Small Gig">Anfragen</a>
+        </article>
+
+        <article class="price-card price-card--highlight">
+          <div class="badge">Beliebt</div>
+          <h3>Party Pro</h3>
+          <p class="muted">Bis ~200 Personen</p>
+          <ul class="feature-list">
+            <li>2× Tops (15")</li>
+            <li>2× Subs (18")</li>
+            <li>DJ-Mixer / Stagebox</li>
+            <li>Licht-Basic-Set</li>
+          </ul>
+          <div class="price">ab <strong>299€</strong> / Tag <span class="suffix">(ohne Lieferung)</span></div>
+          <a href="#anfrage" class="btn btn--primary" data-package="Party Pro">Anfragen</a>
+        </article>
+
+        <article class="price-card">
+          <h3>Open Air</h3>
+          <p class="muted">Bis ~500 Personen</p>
+          <ul class="feature-list">
+            <li>Line-Array Tops</li>
+            <li>4× Subs (18")</li>
+            <li>FOH-Konsole</li>
+            <li>Monitoring & Funk</li>
+          </ul>
+          <div class="price">ab <strong>749€</strong> / Tag <span class="suffix">(ohne Lieferung)</span></div>
+          <a href="#anfrage" class="btn btn--primary" data-package="Open Air">Anfragen</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Produkte / Sets -->
+  <section class="section" id="produkte" aria-labelledby="produkte-title">
+    <div class="container">
+      <h2 id="produkte-title">Sets & Einzelkomponenten</h2>
+      <div class="filters">
+        <button class="filter-btn is-active" data-filter="all">Alle</button>
+        <button class="filter-btn" data-filter="tops">Tops</button>
+        <button class="filter-btn" data-filter="subs">Subs</button>
+        <button class="filter-btn" data-filter="mixer">Mixer</button>
+        <button class="filter-btn" data-filter="zubehoer">Zubehör</button>
+      </div>
+
+      <div class="grid grid-3 product-grid">
+        <article class="product-card" data-category="tops" data-sku="PT12">
+          <img src="Bilder/peakTOP.png" alt="12 Zoll Topteil" />
+          <h3>dB Technologies B-Hype 15 Aktiver Fullrangelautsprecher 15" SUB und 1" Hochtöner mit 85°x 85° Horn</h3>
+          <p>Leicht & laut – ideal für Vocals und DJ-Monitoring.</p>
+          <div class="product-meta">
+            <span>max 131 dB</span><span>200 W RMS / 400 W Peak</span>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="subs" data-sku="PS18">
+          <img src="Bilder/peakSUB.png" alt="18 Zoll Subwoofer" />
+          <h3>dB Technologies Sub 618 Aktiver Subwoofer 18"</h3>
+          <p>Tiefer, trockener Bass für Dance & Live.</p>
+          <div class="product-meta">
+            <span>max 133 dB</span><span>600 W RMS, 1200 W Peak (Class D digipack)</span>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="mixer" data-sku="PMXDG">
+          <img src="Bilder/peakMIXER.png" alt="Digitalmixer" />
+          <h3>PeakMix Digital</h3>
+          <p>Szenen, FX & Remote-App. 16 In / 8 Out.</p>
+          <div class="product-meta">
+            <span>32-Bit</span><span>Low-Latency</span>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="zubehoer" data-sku="MIC2UHF">
+          <img src="Bilder/peakMIC.png" alt="Funkmikrofon" />
+          <h3>Funkmikro Set</h3>
+          <p>2× Handsender, 100m Reichweite, klare Sprache.</p>
+          <div class="product-meta">
+            <span>UHF</span><span>Diversity</span>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="tops" data-sku="PT15">
+          <img src="assets/top-15.jpg" alt="15 Zoll Topteil" />
+          <h3>PeakTop 15"</h3>
+          <p>Mehr Membranfläche für druckvolle Mitten.</p>
+          <div class="product-meta">
+            <span>max 131 dB</span><span>700 W RMS</span>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="subs" data-sku="PS15">
+          <img src="assets/sub-15.jpg" alt="15 Zoll Subwoofer" />
+          <h3>PeakSub 15"</h3>
+          <p>Kompakt, schnell und präzise im Kick-Bass.</p>
+          <div class="product-meta">
+            <span>max 131 dB</span><span>800 W RMS</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hinweisboxen -->
+  <section class="section callouts" aria-label="Wichtige Hinweise">
+    <div class="container grid grid-3">
+      <div class="callout">
+        <h3>Lieferung & Aufbau</h3>
+        <p>Nicht im Paketpreis enthalten. Kann im Formular je nach Entfernung zubucht werden.</p>
+      </div>
+      <div class="callout">
+        <h3>Selbstbeteiligung</h3>
+        <p>Im Schadensfall fällt eine Selbstbeteiligung von bis zu <strong>350€</strong> an. Details siehe AGB.</p>
+      </div>
+      <div class="callout">
+        <h3>Kaution</h3>
+        <p>Bei Selbstabholung erheben wir eine rückzahlbare Kaution (Höhe abhängig vom Paket).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq" aria-labelledby="faq-title">
+    <div class="container">
+      <h2 id="faq-title">FAQ</h2>
+      <details class="faq">
+        <summary>Ist Lieferung im Preis enthalten?</summary>
+        <p>Nein. Lieferung & Aufbau sind optional und werden je nach Entfernung berechnet.</p>
+      </details>
+      <details class="faq">
+        <summary>Gibt es eine Selbstbeteiligung?</summary>
+        <p>Ja. Im Schadensfall beträgt die Selbstbeteiligung bis zu 350€. Wir empfehlen eine Eventversicherung.</p>
+      </details>
+      <details class="faq">
+        <summary>Liefern und bauen Sie vor Ort auf?</summary>
+        <p>Ja, optional. Wir liefern, bauen auf und machen den Soundcheck.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- Kontakt / Anfrage -->
+  <section class="section section--emph" id="anfrage" aria-labelledby="anfrage-title">
+    <div class="container">
+      <h2 id="anfrage-title">Unverbindliche Anfrage</h2>
+      <form class="form" novalidate>
+        <div class="grid grid-2">
+          <label class="field">
+            <span>Name</span>
+            <input type="text" name="name" autocomplete="name" required />
+            <small class="error"></small>
+          </label>
+          <label class="field">
+            <span>E-Mail</span>
+            <input type="email" name="email" autocomplete="email" required />
+            <small class="error"></small>
+          </label>
+          <label class="field">
+            <span>Telefon</span>
+            <input type="tel" name="phone" autocomplete="tel" />
+            <small class="error"></small>
+          </label>
+          <label class="field">
+            <span>Datum des Events</span>
+            <input type="date" name="date" required />
+            <small class="error"></small>
+          </label>
+          <label class="field">
+            <span>Personenanzahl</span>
+            <input type="number" name="people" min="10" step="10" placeholder="z. B. 120" required />
+            <small class="error"></small>
+          </label>
+          <label class="field">
+            <span>Gewünschtes Paket</span>
+            <select name="package">
+              <option value="">Bitte wählen …</option>
+              <option>Small Gig</option>
+              <option>Party Pro</option>
+              <option>Open Air</option>
+              <option>Individuell</option>
+            </select>
+            <small class="error"></small>
+          </label>
+        </div>
+
+        <div class="grid grid-2">
+          <label class="field">
+            <span>Lieferung & Aufbau (optional)</span>
+            <select name="delivery">
+              <option value="none">Keine Lieferung (Selbstabholung)</option>
+              <option value="zone1">Bis 10 km (+39€)</option>
+              <option value="zone2">10–25 km (+59€)</option>
+              <option value="zone3">25–50 km (+89€)</option>
+            </select>
+            <small class="muted">Preis pro Anlieferung (Hin-/Rücktour kombiniert).</small>
+          </label>
+          <label class="field">
+            <span>Techniker vor Ort (optional)</span>
+            <select name="tech">
+              <option value="none">Kein Techniker</option>
+              <option value="setup">Nur Aufbau/Abbau (+69€)</option>
+              <option value="full">Betreuung bis 6 Std (+199€)</option>
+            </select>
+            <small class="muted">Verfügbarkeit nach Absprache.</small>
+          </label>
+        </div>
+
+        <label class="field">
+          <span>Nachricht</span>
+          <textarea name="message" rows="5" placeholder="Location, Musikstil, besondere Wünsche …"></textarea>
+          <small class="error"></small>
+        </label>
+
+        <div class="policy-box">
+          <label class="checkbox">
+            <input type="checkbox" name="liability" required />
+            <span>Ich habe den Hinweis zur <strong>Selbstbeteiligung bis 350€</strong> im Schadensfall gelesen und akzeptiere ihn.</span>
+          </label>
+          <small class="muted">Details in unseren AGB. Ohne Zustimmung kann keine Vermietung erfolgen.</small>
+        </div>
+
+        <div class="estimate">
+          <div class="estimate-line">
+            <span>Preis-Schätzung</span>
+            <strong id="estimateValue">–</strong>
+          </div>
+          <small class="muted">Unverbindlich, zzgl. ggf. Lieferung & Technik. Endpreis nach Beratung & Verfügbarkeit.</small>
+        </div>
+
+        <button type="submit" class="btn btn--primary btn--xl">Anfrage senden</button>
+        <p class="form-success" role="status" aria-live="polite" hidden>
+          Danke! Wir melden uns so schnell wie möglich.
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="logo footer-logo" href="#top">
+          <img src="assets/logo.svg" alt="" class="logo-img" />
+          <span class="logo-text">PeakBeats</span>
+        </a>
+        <p class="muted">Sound, der trägt. Vermietung & Technik mit Herz.</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="#leistungen">Leistungen</a>
+        <a href="#pakete">Pakete</a>
+        <a href="#produkte">Produkte</a>
+        <a href="#faq">FAQ</a>
+        <a href="#anfrage">Kontakt</a>
+      </nav>
+      <div class="footer-meta">
+        <p>&copy; <span id="year"></span> PeakBeats</p>
+        <a href="#" class="muted">Impressum</a>
+        <a href="#" class="muted">Datenschutz</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Admin / Backdoor Panel (clientseitig) -->
+  <dialog id="adminPanel">
+    <form method="dialog" class="admin">
+      <h3>Admin: Verfügbarkeit</h3>
+      <p class="muted">Produkte ausgrauen/ sperren, wenn nicht verfügbar. (Clientseitig, speichert im Browser)</p>
+      <div class="admin-list"></div>
+      <div class="admin-actions">
+        <button value="cancel" class="btn">Schließen</button>
+        <button id="adminReset" class="btn btn--ghost" type="button">Zurücksetzen</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="peakbeats.js" defer></script>
+</body>
+</html>
