@@ -1,0 +1,2120 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PeakBeats – PA-Anlagen Vermietung</title>
+  <meta name="description"
+    content="PeakBeats vermietet leistungsstarke PA-Anlagen, Lautsprecher, Subwoofer & Zubehör für Events jeder Größe. Einfach anfragen & liefern lassen." />
+  <meta property="og:title" content="PeakBeats – PA-Anlagen Vermietung" />
+  <meta property="og:description" content="Leistungsstarke PA-Anlagen, faire Preise, einfache Buchung.">
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="Bilder/logo.png" />
+  <link rel="preload" as="image" href="Bilder/logo.png">
+  <style>
+    /* ========== Design Tokens ========== */
+    :root {
+      --bg: #0d0e12;
+      --panel: #13151c;
+      --panel-2: #1a1d26;
+      --text: #e7e9ee;
+      --muted: #9aa1ad;
+      --accent: #ff5a1f;
+      --accent-2: #ff8850;
+      --ring: 0 0 0 3px color-mix(in oklab, var(--accent) 30%, transparent);
+      --radius: 18px;
+      --shadow: 0 10px 30px rgba(0, 0, 0, .35);
+    }
+
+    /* Reset & base */
+    * {
+      box-sizing: border-box
+    }
+
+    html,
+    body {
+      height: 100%
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, Noto Sans, "Apple Color Emoji", "Segoe UI Emoji";
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    .container {
+      width: min(1100px, 92vw);
+      margin-inline: auto;
+    }
+
+    /* Header */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: linear-gradient(to bottom, rgba(13, 14, 18, .9), rgba(13, 14, 18, .4) 60%, transparent);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255, 255, 255, .06);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 14px 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+    }
+
+    .logo-img {
+      width: 28px;
+      height: 28px
+    }
+
+    .logo-text {
+      letter-spacing: .3px
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-left: auto;
+    }
+
+    .nav-links a {
+      padding: 8px 12px;
+      border-radius: 999px;
+    }
+
+    .nav-links a:hover {
+      background: rgba(230, 199, 199, 0.06);
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: 0;
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      position: relative
+    }
+
+    .burger,
+    .burger::before,
+    .burger::after {
+      content: "";
+      position: absolute;
+      left: 9px;
+      right: 9px;
+      height: 2px;
+      background: var(--text);
+      transition: transform .2s ease, top .2s ease, opacity .2s ease;
+    }
+
+    .burger {
+      top: 20px
+    }
+
+    .burger::before {
+      top: -7px
+    }
+
+    .burger::after {
+      top: 7px
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-weight: 600;
+      border: 1px solid transparent;
+      box-shadow: 0 2px 0 rgba(0, 0, 0, .25);
+      transition: transform .06s ease, box-shadow .06s ease, background .2s ease, border-color .2s ease;
+    }
+
+    .btn--xl {
+      padding: 14px 22px;
+      font-size: 1.05rem
+    }
+
+    .btn--primary {
+      background: var(--accent);
+      color: #1b0d08;
+      border-color: #00000020;
+    }
+
+    .btn--primary:hover {
+      background: var(--accent-2);
+      transform: translateY(-1px)
+    }
+
+    .btn--ghost {
+      background: transparent;
+      border-color: #ffffff26;
+    }
+
+    .btn--ghost:hover {
+      background: #ffffff10
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      min-height: 72vh;
+      display: grid;
+      place-items: center;
+      isolation: isolate;
+    }
+
+    .hero-media {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(1000px 500px at 70% 30%, #ff5a1f33, transparent 60%),
+        radial-gradient(800px 400px at 20% 70%, #6aa0ff20, transparent 60%),
+        url('');
+      /* Bilder/feuer.webp */
+      background-size: cover, cover, cover;
+      background-position: center;
+      filter: saturate(1.1) contrast(1.05);
+      z-index: -2;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, var(--bg) 0 18%, transparent 45% 70%, rgba(0, 0, 0, .35));
+      z-index: -1;
+    }
+
+    .hero-content {
+      text-align: center;
+      padding: 90px 0 60px
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 4.5vw, 3.5rem);
+      line-height: 1.1;
+      margin: 0 0 12px;
+      letter-spacing: .2px;
+    }
+
+    .lead {
+      color: var(--muted);
+      margin: 0 auto 24px;
+      width: min(750px, 92vw)
+    }
+
+    .hero-cta {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap
+    }
+
+    .trust {
+      list-style: none;
+      padding: 0;
+      margin: 16px 0 0;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+      color: #cbd2dd
+    }
+
+    .hero-badge {
+      position: absolute;
+      bottom: 18px;
+      right: 18px;
+      background: #ffffff10;
+      border: 1px solid #ffffff20;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: .85rem;
+    }
+
+    .accent {
+      background: linear-gradient(90deg, var(--accent), #ffd7c9);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent
+    }
+
+    /* Sections */
+    .section {
+      padding: 64px 0
+    }
+
+    .section--alt {
+      background: var(--panel)
+    }
+
+    .section--emph {
+      background:
+        radial-gradient(800px 300px at 20% 20%, #ff5a1f22, transparent 70%),
+        radial-gradient(800px 300px at 80% 60%, #6aa0ff1a, transparent 70%),
+        var(--panel-2);
+    }
+
+    .section h2 {
+      font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+      margin: 0 0 10px
+    }
+
+    .section-intro {
+      color: var(--muted);
+      margin: 0 0 26px
+    }
+
+    /* Grid */
+    .grid {
+      display: grid;
+      gap: 18px
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr))
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr))
+    }
+
+    @media (max-width: 900px) {
+      .grid-3 {
+        grid-template-columns: 1fr 1fr
+      }
+    }
+
+    @media (max-width: 640px) {
+
+      .grid-2,
+      .grid-3 {
+        grid-template-columns: 1fr
+      }
+    }
+
+    /* Cards */
+    .card,
+    .price-card,
+    .product-card,
+    .testimonial,
+    .faq,
+    .callout {
+      background: linear-gradient(180deg, #ffffff08, #ffffff03);
+      border: 1px solid #ffffff12;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+
+    .card-icon {
+      font-size: 1.6rem
+    }
+
+    .muted {
+      color: var(--muted)
+    }
+
+    /* Pricing */
+    .price-card {
+      position: relative
+    }
+
+    .price-card .price {
+      margin: 14px 0 0;
+      font-size: 1.1rem
+    }
+
+    .price-card .badge {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      font-size: .75rem;
+      background: #ffd9cc;
+      color: #7a2e13;
+      padding: 6px 8px;
+      border-radius: 999px;
+    }
+
+    .price-card--highlight {
+      border-color: #ffbe9a;
+      background: linear-gradient(180deg, #ff83461a, #ffffff05);
+    }
+
+    .price .suffix {
+      opacity: .8;
+      font-size: .9em
+    }
+
+    /* Filters + products */
+    .filters {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 16px
+    }
+
+    .filter-btn {
+      border: 1px solid #ffffff26;
+      background: #ffffff08;
+      color: var(--text);
+      padding: 8px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .filter-btn:hover {
+      background: #ffffff12
+    }
+
+    .filter-btn.is-active {
+      border-color: var(--accent);
+      box-shadow: var(--ring)
+    }
+
+    .product-card {
+      position: relative
+    }
+
+    .product-card img {
+      border-radius: 12px;
+      aspect-ratio: 3/3;
+      object-fit: cover;
+      margin-bottom: 10px
+    }
+
+    .product-meta {
+      display: flex;
+      gap: 8px;
+      color: #cbd2dd;
+      font-size: .9rem
+    }
+
+    .product-card.is-blocked {
+      filter: grayscale(1) brightness(.7);
+      opacity: .7
+    }
+
+    /* Produkte blockiert */
+    .product-card.is-blocked::after {
+      content: "Nicht verfügbar";
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #0009;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-weight: 700;
+      border: 1px solid #ffffff33;
+    }
+
+    /* stellt sicher, dass das Badge richtig positioniert werden kann */
+    .price-card {
+      position: relative;
+    }
+
+    /* Optisches Ausgrauen */
+    .price-card.is-blocked {
+      filter: grayscale(100%);
+      opacity: 0.55;
+    }
+
+    /* Das runde "Nicht verfügbar"-Badge oben rechts */
+    .price-card.is-blocked::after {
+      content: "Nicht verfügbar";
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #0009;
+      color: #fff;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-weight: 700;
+      border: 1px solid #ffffff33;
+      z-index: 2;
+    }
+
+
+    /* Callouts */
+    .callouts .callout h3 {
+      margin-top: 0
+    }
+
+    /* FAQ */
+    .faq summary {
+      cursor: pointer;
+      font-weight: 700
+    }
+
+    .faq[open] {
+      outline: var(--ring)
+    }
+
+    .faq p {
+      color: #d6dbe6
+    }
+
+    /* Form */
+    .form {
+      display: grid;
+      gap: 16px
+    }
+
+    .field {
+      display: grid;
+      gap: 6px
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid #ffffff22;
+      background: #0f1118;
+      color: var(--text);
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      outline: none;
+      box-shadow: var(--ring);
+      border-color: var(--accent);
+    }
+
+    /* Fehler für normale Felder */
+    .field.error input,
+    .field.error select,
+    .field.error textarea {
+      border: 2px solid red;
+    }
+
+    /* Fehlertext in Feldern */
+    .field .error {
+      color: #ffb4a2;
+      font-size: 0.875rem;
+      min-height: 1em;
+    }
+
+    .field textarea {
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      overflow-wrap: break-word;
+      word-break: break-word;
+      resize: vertical;
+    }
+
+    .checkbox {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start
+    }
+
+    /* Policy-Box Standard */
+    .policy-box {
+      border: 1px dashed #ffffff33;
+      border-radius: 14px;
+      padding: 12px 14px;
+      background: #ffffff06;
+      position: relative;
+    }
+
+    /* Policy-Box Fehlerzustand */
+    .policy-box.error {
+      border: 2px solid red;
+      border-radius: 14px;
+      /* gleiche Rundung wie normal, nur etwas stärker */
+      background: rgba(255, 0, 0, 0.05);
+    }
+
+    /* Fehlertext innerhalb der Policy-Box */
+    .policy-box .error {
+      display: block;
+      color: #ffb4a2;
+      margin-top: 6px;
+      font-size: 0.875rem;
+    }
+
+    .estimate {
+      background: #ffffff08;
+      border: 1px solid #ffffff22;
+      border-radius: 14px;
+      padding: 12px 14px;
+    }
+
+    .estimate-line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between
+    }
+
+    .form-success {
+      margin: 0
+    }
+
+    /* Footer */
+    .footer {
+      padding: 42px 0;
+      background: #0b0c10;
+      border-top: 1px solid #ffffff10
+    }
+
+    .footer-grid {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: 1.3fr .9fr .8fr
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 8px
+    }
+
+    .footer-logo {
+      margin-bottom: 8px
+    }
+
+    /* Modal Hintergrund */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    /* Modal Content */
+    .modal-content {
+      background: var(--panel-2);
+      padding: 24px;
+      max-width: 600px;
+      width: 90%;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      color: var(--text);
+      position: relative;
+      animation: fadeIn 0.2s ease-out;
+      max-height: 80vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      word-wrap: break-word;
+      /* lange Wörter umbrechen */
+      hyphens: auto;
+      /* optional: automatische Silbentrennung */
+    }
+
+    .modal-scroll {
+      overflow-y: auto;
+      padding-right: 8px;
+      margin-top: 12px;
+      word-wrap: break-word;
+      hyphens: auto;
+    }
+
+    /* Close Button */
+    .modal-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: transparent;
+      border: none;
+      font-size: 1.2rem;
+      color: var(--muted);
+      cursor: pointer;
+    }
+
+    .modal-close:hover {
+      color: var(--accent);
+    }
+
+    /* Überschriften */
+    .modal h2 {
+      margin-top: 0;
+      margin-bottom: 16px;
+      font-size: 1.8rem;
+      color: var(--accent);
+    }
+
+    /* Text */
+    .modal p {
+      margin: 6px 0 12px;
+      line-height: 1.5;
+    }
+
+    /* Animation */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 800px) {
+      .footer-grid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    /* Responsive nav */
+    @media (max-width: 860px) {
+      .nav-toggle {
+        display: inline-block
+      }
+
+      .nav-links {
+        position: absolute;
+        right: 12px;
+        top: 60px;
+        background: #0d0f15;
+        border: 1px solid #ffffff14;
+        border-radius: 14px;
+        padding: 10px;
+        display: none;
+        flex-direction: column;
+        width: 220px
+      }
+
+      .nav-links a {
+        padding: 10px 12px
+      }
+
+      .nav-links.open {
+        display: flex
+      }
+
+      .burger.open {
+        transform: rotate(45deg)
+      }
+
+      .burger.open::before {
+        top: 0;
+        transform: rotate(90deg)
+      }
+
+      .burger.open::after {
+        opacity: 0
+      }
+    }
+
+    /* Admin Panel */
+    dialog#adminPanel {
+      border: none;
+      border-radius: 16px;
+      padding: 0;
+      width: min(720px, 92vw);
+      background: #111318;
+      color: var(--text);
+      box-shadow: 0 20px 80px rgba(0, 0, 0, .6);
+    }
+
+    #adminPanel::backdrop {
+      background: rgba(0, 0, 0, .6)
+    }
+
+    .admin {
+      padding: 18px
+    }
+
+    .admin h3 {
+      margin: 0 0 8px
+    }
+
+    .admin .admin-list {
+      display: grid;
+      gap: 8px;
+      max-height: 60vh;
+      overflow: auto;
+      margin: 12px 0
+    }
+
+    .admin-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      justify-content: space-between;
+      border: 1px solid #ffffff14;
+      border-radius: 12px;
+      padding: 10px 12px;
+      background: #171a22
+    }
+
+    .admin-row .sku {
+      opacity: .8;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
+    }
+
+    .admin-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px
+    }
+
+    .admin .switch {
+      appearance: none;
+      width: 42px;
+      height: 26px;
+      background: #444a;
+      border-radius: 999px;
+      position: relative;
+      outline: none;
+      cursor: pointer
+    }
+
+    .admin .switch::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #fff;
+      top: 3px;
+      left: 3px;
+      transition: left .2s ease
+    }
+
+    .admin .switch:checked {
+      background: var(--accent)
+    }
+
+    .admin .switch:checked::after {
+      left: 19px
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header / Navigation -->
+  <header class="header">
+    <div class="container nav">
+      <a class="logo" href="#top" aria-label="PeakBeats Startseite">
+        <img src="Bilder/logo.png" alt="" class="logo-img" />
+        <span class="logo-text">PeakBeats</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">
+        <span class="burger"></span>
+      </button>
+
+      <nav class="nav-links" aria-label="Hauptnavigation">
+        <a href="#leistungen">Leistungen</a>
+        <a href="#pakete">Pakete</a>
+        <a href="#produkte">Produkte</a>
+        <a href="#faq">FAQ</a>
+        <a href="#" class="impressum-link btn btn--ghost">Kontakt</a>
+        <a href="#anfrage" class="btn btn--primary">Jetzt anfragen</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="hero-media" role="img" aria-label="Konzertmenge vor Bühne mit Lautsprechern"></div>
+    <div class="container hero-content">
+      <h1 id="hero-title">Mehr Druck. Mehr Klarheit. <span class="accent">PeakBeats</span>.</h1>
+      <p class="lead">
+        Miete hochwertige PA-Anlagen, Lautsprecher & Subwoofer – optional mit Lieferung & Aufbau.
+      </p>
+      <div class="hero-cta">
+        <a href="#anfrage" class="btn btn--primary btn--xl">Angebot anfordern</a>
+        <a href="#pakete" class="btn btn--ghost btn--xl">Pakete ansehen</a>
+      </div>
+      <ul class="trust">
+        <li>✓ Optional: Lieferung & Aufbau</li>
+        <li>✓ Spontan Mietbar</li>
+        <li>✓ Faire, transparente Preise</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Leistungen -->
+  <section class="section" id="leistungen" aria-labelledby="leistungen-title">
+    <div class="container">
+      <h2 id="leistungen-title">Was wir liefern</h2>
+      <p class="section-intro">Komplettservice für Gigs, Firmenfeiern, Festivals & Privat-Events.</p>
+
+      <div class="grid grid-3">
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">🧭</div>
+          <h3>Planung & Beratung</h3>
+          <p>Wir dimensionieren die Anlage exakt nach Location, Publikum und Musikstil.</p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">📦</div>
+          <h3>Anlieferung & Aufbau</h3>
+          <p>Optional zubuchbar: Lieferung, Aufbau und Soundcheck durch unser Team.</p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">🛠️</div>
+          <h3>Betreuung & Support</h3>
+          <p>Schnelle Antwortzeiten und verfügbar wenn Sie es brauchen!</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pakete -->
+  <section class="section section--alt" id="pakete" aria-labelledby="pakete-title">
+    <div class="container">
+      <h2 id="pakete-title">Mietpakete</h2>
+      <p class="section-intro">
+        Alle Preise verstehen sich als Richtwerte <strong>zzgl. Lieferung und Aufbau</strong> (optional buchbar).
+        Bei <strong>Mehr­tages­buchungen gewähren wir 30 % Rabatt</strong>.
+        Der endgültige Preis richtet sich nach Beratung und Verfügbarkeit.
+      </p>
+
+
+      <div class="grid grid-3">
+        <article class="price-card" data-sku="pkg-small" data-type="package">
+          <h3>Small Gig</h3>
+          <p class="muted">Bis ~80 Personen</p>
+          <ul class="feature-list">
+            <li>1× Tops (12")</li>
+            <li>1× Subwoofer (15")</li>
+            <li>1× Mini-Mischpult</li>
+            <li>1× Kabelsatz</li>
+          </ul>
+          <div class="price">ab <strong data-price>99</strong>€ / Tag <span class="suffix">(ohne Lieferung)</span></div>
+          <a href="#anfrage" class="btn btn--primary" data-package="Small Gig">Anfragen</a>
+        </article>
+
+        <article class="price-card price-card--highlight" data-sku="pkg-party" data-type="package">
+          <div class="badge">Beliebt</div>
+          <h3>Party Pro</h3>
+          <p class="muted">Bis ~300 Personen</p>
+          <ul class="feature-list">
+            <li>2× Tops (15")</li>
+            <li>2× Subs (18")</li>
+            <li>1× Mini-Mischpult</li>
+            <li>1× Mikro + Stativ</li>
+            <!-- <li>Licht-Basic-Set</li> -->
+            <li>1× Kabelsatz</li>
+          </ul>
+          <div class="price">ab <strong data-price>149</strong>€ / Tag <span class="suffix">(ohne Lieferung)</span>
+          </div>
+          <a href="#anfrage" class="btn btn--primary" data-package="Party Pro">Anfragen</a>
+        </article>
+
+        <article class="price-card" data-sku="pkg-open" data-type="package">
+          <h3>Open Air</h3>
+          <p class="muted">Bis ~500 Personen</p>
+          <ul class="feature-list">
+            <li>4× Tops (15")</li>
+            <li>4× Subs (18")</li>
+            <li>1× DJ-Mischpult</li>
+            <li>2× Mikro + Stative</li>
+            <li>1× Kabelsatz</li>
+          </ul>
+          <div class="price">ab <strong data-price>249</strong>€ / Tag <span class="suffix">(ohne Lieferung)</span>
+          </div>
+          <a href="#anfrage" class="btn btn--primary" data-package="Open Air">Anfragen</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Produkte / Sets -->
+  <section class="section" id="produkte" aria-labelledby="produkte-title">
+    <div class="container">
+      <h2 id="produkte-title">Sets & Einzelkomponenten</h2>
+      <div class="filters">
+        <button class="filter-btn is-active" data-filter="all">Alle</button>
+        <button class="filter-btn" data-filter="tops">Tops</button>
+        <button class="filter-btn" data-filter="subs">Subs</button>
+        <button class="filter-btn" data-filter="mixer">Mixer</button>
+        <button class="filter-btn" data-filter="zubehoer">Zubehör</button>
+      </div>
+
+      <div class="grid grid-3 product-grid">
+        <article class="product-card" data-category="tops" data-sku="PT12" data-type="equipment">
+          <img src="https://thumbs.static-thomann.de/thumb/padthumb600x600/pics/bdb/_40/407720/11905221_800.jpg"
+            alt="12 Zoll Topteil" />
+          <h3>dB Technologies B-Hype 15 Aktiver Fullrangelautsprecher</h3>
+          <p>Leicht & laut – ideal für Vocals und DJ-Monitoring.</p>
+          <div class="product-meta">
+            <span>max 131 dB</span><span>200 W RMS / 400 W Peak</span>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="subs" data-sku="PS18" data-type="equipment">
+          <img src="https://cdnx.jumpseller.com/ao-electronics-store/image/17696143/resize/1000/1000?1735340853"
+            alt="18 Zoll Subwoofer" />
+          <h3>dB Technologies Sub 618 Aktiver Subwoofer 18"</h3>
+          <p>Tiefer, trockener Bass für Dance & Live.</p>
+          <div class="product-meta">
+            <span>max 133 dB</span><span>600 W RMS, 1200 W Peak</span>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="mixer" data-sku="PMXDG" data-type="equipment">
+          <img src="https://www.iconsshop.co.za/wp-content/uploads/2023/09/products-XENYX3022.jpg" alt="Digitalmixer" />
+          <h3>PeakMix Digital</h3>
+          <p>Szenen, FX & Remote-App. 16 In / 8 Out.</p>
+          <div class="product-meta">
+            <span>32-Bit</span><span>Low-Latency</span>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="zubehoer" data-sku="MIC2UHF" data-type="equipment">
+          <img
+            src="https://cdn.testsieger.de/produkt/eyJrZXkiOiJ2LmVrXC8yNVwvMjViN2M2M2YtZWJkOS01ZGQzLWFmOWItMTY5YWE5ZWMwZTU0LmpwZWcifQ=="
+            alt="Funkmikrofon" />
+          <h3>JBL Funkmikro</h3>
+          <p>Microfone von JBL, mit bis zu 100m Reichweite, klare Sprache.</p>
+          <div class="product-meta">
+            <span>UHF</span><span>Diversity</span>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="zubehoer" data-sku="PT15" data-type="equipment">
+          <img
+            src="https://cdn-ccobccl.nitrocdn.com/iGOItiTCUcgSIrdNCyXiBvzCzlmyFHOa/assets/images/optimized/rev-2a8a6a4/nebelbusiness.de/wp-content/uploads/2022/04/2-LED-500-Nebelmaschine.jpg"
+            alt="Nebelmachiene" />
+          <h3>Nebelmaschine </h3>
+          <p>Leichte bedienung durch Fernbedienung</p>
+          <div class="product-meta">
+            <span>1 Liter Liquit Tank,</span><span>500 W lestung</span>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="zubehoer" data-sku="PS15" data-type="equipment">
+          <img src="https://m.media-amazon.com/images/I/81kMr+lJRvL._UF894,1000_QL80_.jpg" alt="Laser-Licht" />
+          <h3>Mini-Laser</h3>
+          <p>Kompakt, leicht und perfekt für jede art der Party</p>
+          <div class="product-meta">
+            <span>60 Lichteffekte,</span><span>USB-Stromanschluss</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hinweisboxen -->
+  <section class="section callouts" aria-label="Wichtige Hinweise">
+    <div class="container grid grid-3">
+      <div class="callout">
+        <h3>Lieferung & Aufbau</h3>
+        <p>Nicht im Paketpreis enthalten. Kann im Formular je nach Entfernung zugebucht werden.</p>
+      </div>
+      <div class="callout">
+        <h3>Selbstbeteiligung</h3>
+        <p>Im Schadensfall fällt eine Selbstbeteiligung von bis zu <strong>350€</strong> an. Details siehe <a href="#"
+            class="agb-link">AGB</a>.</p>
+      </div>
+      <div class="callout">
+        <h3>Kaution</h3>
+        <p>Bei Vermietung erheben wir eine rückzahlbare Kaution (Höhe abhängig vom Paket).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq" aria-labelledby="faq-title">
+    <div class="container">
+      <h2 id="faq-title">FAQ</h2>
+      <details class="faq">
+        <summary>Ist Lieferung im Preis enthalten?</summary>
+        <p>Nein. Lieferung & Aufbau sind optional und werden je nach Entfernung berechnet.</p>
+      </details>
+      <details class="faq">
+        <summary>Gibt es eine Selbstbeteiligung?</summary>
+        <p>Ja. Im Schadensfall beträgt die Selbstbeteiligung bis zu 350€. Wir empfehlen eine Eventversicherung.</p>
+      </details>
+      <details class="faq">
+        <summary>Liefern und bauen Sie vor Ort auf?</summary>
+        <p>Ja, optional. Wir liefern, bauen auf und machen den Soundcheck.</p>
+      </details>
+      <details class="faq">
+        <summary>Kann man Produkte auch einzelnt Mieten?</summary>
+        <p>Ja, Durch die Option "Individuell" unter "Gewünschtes Paket". Danach das Nachrichten Feld beim Mieten
+          benutzen für gewünschte Produkte. </p>
+      </details>
+    </div>
+  </section>
+
+  <!-- Kontakt / Anfrage -->
+  <section class="section section--emph" id="anfrage" aria-labelledby="anfrage-title">
+    <div class="container">
+      <h2 id="anfrage-title">Unverbindliche Anfrage</h2>
+      <form class="form" novalidate>
+        <div class="grid grid-2">
+          <label class="field">
+            <span>Vorname</span>
+            <input type="text" name="vorname" autocomplete="name" required />
+            <small class="error"></small>
+          </label>
+          <label class="field">
+            <span>Nachname</span>
+            <input type="text" name="nachname" autocomplete="name" required />
+            <small class="error"></small>
+          </label>
+          <label class="field">
+            <span>E-Mail</span>
+            <input type="email" name="email" autocomplete="email" required />
+            <small class="error"></small>
+          </label>
+          <label class="field">
+            <span>Telefon (optional)</span>
+            <input type="tel" name="phone" autocomplete="tel" />
+            <small class="error"></small>
+          </label>
+          <label class="field">
+            <span>Start-Datum des Events</span>
+            <input type="date" name="startDate" required />
+            <small class="muted">Abholungs/ Lieferungs Uhrzeit nach Absprache</small>
+            <small class="error"></small>
+          </label>
+          <label class="field">
+            <span>End-Datum des Events</span>
+            <input type="date" name="endDate" required />
+            <small class="muted">Abgabe bis 11 Uhr am End-Datums</small>
+            <small class="error"></small>
+          </label>
+          <label class="field">
+            <span>Gewünschtes Paket</span>
+            <select name="package" required>
+              <option value="">Bitte wählen …</option>
+              <option>Small Gig</option>
+              <option>Party Pro</option>
+              <option>Open Air</option>
+              <option>Individuell</option>
+            </select>
+            <small class="error"></small>
+          </label>
+          <label class="field">
+            <span>Techniker vor Ort (optional)</span>
+            <select name="tech">
+              <option value="none">Kein Techniker</option>
+              <option value="setup">Nur Aufbau/Abbau (+69€)</option>
+              <!-- <option value="full">Betreuung bis 6 Std (+199€)</option> -->
+            </select>
+            <small class="muted">Verfügbarkeit nach Absprache.</small>
+          </label>
+        </div>
+
+        <div class="grid grid-2">
+
+          <label class="field">
+            <span>Postleitzahl Lieferung (optional)</span>
+            <input type="text" name="zip" placeholder="PLZ eingeben">
+            <small class="muted">Wir berechnen automatisch die Entfernung.</small>
+          </label>
+
+          <p id="deliveryPrice">Lieferung: – <br>
+            <small class="muted">Preis pro Anlieferung (Hin-/Rücktour kombiniert).</small>
+          </p>
+        </div>
+
+        <label class="field">
+          <span>Nachricht</span>
+          <textarea name="message" rows="5" placeholder="Location, Uhrzeiten, besondere Wünsche …"></textarea>
+          <small class="error"></small>
+        </label>
+
+        <div class="policy-box">
+          <label class="checkbox">
+            <input type="checkbox" name="liability" required />
+            <span>
+              Ich habe den Hinweis zur <strong>Selbstbeteiligung bis 350€</strong> im Schadensfall und zur
+              <strong>Kaution vor der Vermietung</strong> gelesen und
+              akzeptiere ihn.
+            </span>
+          </label>
+          <small class="muted">
+            Details in unseren <a href="#" class="agb-link muted">AGB</a>. Ohne Zustimmung kann keine Vermietung
+            erfolgen.
+          </small>
+          <small class="error"></small>
+        </div>
+
+        <div class="estimate">
+          <div class="estimate-line">
+            <span>Preis-Schätzung</span>
+            <strong id="estimateValue">–</strong>
+          </div>
+          <small class="muted">Unverbindlich, zzgl. ggf. Lieferung & Technik. Endpreis nach Beratung &
+            Verfügbarkeit.</small>
+        </div>
+
+        <button type="submit" class="btn btn--primary btn--xl">Anfrage senden</button>
+        <p class="form-success" role="status" aria-live="polite" hidden>
+          Danke! Wir melden uns so schnell wie möglich.
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="logo footer-logo" href="#top">
+          <img src="Bilder/logo.png" alt="" class="logo-img" />
+          <span class="logo-text">PeakBeats</span>
+        </a>
+        <p class="muted">Sound, der trägt. Vermietung & Technik mit Herz.</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="#leistungen">Leistungen</a>
+        <a href="#pakete">Pakete</a>
+        <a href="#produkte">Produkte</a>
+        <a href="#faq">FAQ</a>
+        <a href="#" class="impressum-link">Kontakt</a>
+      </nav>
+      <div class="footer-meta">
+        <p>&copy; <span id="year"></span> PeakBeats</p>
+        <a href="#" class="impressum-link muted">Impressum,</a>
+        <a href="#" class="datenschutz-link muted">Datenschutz</a>,
+        <a href="#" class="agb-link muted">AGB</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Impressum Modal -->
+  <div id="impressum-modal" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" id="close-impressum">✖</button>
+      <h2>Impressum</h2>
+      <p><strong>PeakBeats</strong><br>
+        Daniel Volz<br>
+        Habichtsweg 9a<br>
+        26133 Oldenburg<br>
+        Deutschland</p>
+      <p><strong>Kontakt:</strong><br>
+        Telefon: 015788729418<br>
+        E-Mail: service@peakbeats.de</p>
+      <p><strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong><br>
+        Daniel Volz</p>
+    </div>
+  </div>
+
+  <!-- Datenschutz Modal -->
+  <div id="datenschutz-modal" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" id="close-datenschutz">✖</button>
+      <h2>Datenschutzerklärung – PeakBeats</h2>
+
+      <div class="modal-scroll">
+        <p><strong>1. Verantwortliche Stelle</strong><br>
+          PeakBeats<br>
+          Daniel Volz</Var><br>
+          Habichtsweg 9a<br>
+          26133 Oldenburg<br>
+          E-Mail: info@peakbeats.de<br>
+        </p>
+
+        <p><strong>2. Erhebung und Speicherung personenbezogener Daten</strong><br>
+          Wir verarbeiten personenbezogene Daten (Name, Adresse, Telefonnummer, E-Mail), soweit dies für die Bearbeitung
+          von Anfragen, Angebote und Verträge notwendig ist.</p>
+
+        <p><strong>3. Weitergabe von Daten</strong><br>
+          Eine Weitergabe Ihrer Daten an Dritte erfolgt nur, wenn dies zur Vertragserfüllung erforderlich ist (z. B.
+          Zahlungsdienstleister) oder Sie eingewilligt haben.</p>
+
+        <p><strong>4. Speicherung & Löschung</strong><br>
+          Ihre Daten werden nur so lange gespeichert, wie es zur Vertragserfüllung notwendig ist oder gesetzliche
+          Pflichten bestehen. Danach werden sie gelöscht.</p>
+
+        <p><strong>5. Rechte der Betroffenen</strong><br>
+          Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung sowie Widerspruch
+          gegen die Verarbeitung Ihrer Daten. Zudem besteht ein Beschwerderecht bei der zuständigen Aufsichtsbehörde.
+        </p>
+
+        <p><strong>6. Cookies & Tracking</strong><br>
+          Unsere Website verwendet nur technisch notwendige Cookies. Ein Tracking zu Werbezwecken findet nicht statt.
+        </p>
+
+        <p><strong>7. Kontakt zum Datenschutz</strong><br>
+          Bei Fragen wenden Sie sich bitte an: info@peakbeats.de</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- AGB Modal -->
+  <div id="agb-modal" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" id="close-agb">✖</button>
+      <h2>Allgemeine Geschäftsbedingungen (AGB) – PeakBeats</h2>
+
+      <div class="modal-scroll">
+        <p><strong>1. Geltungsbereich</strong><br>
+          Diese AGB gelten für alle Vermietungen von PA-Anlagen, Lautsprechern, Subwoofern und Zubehör durch PeakBeats.
+          Sie gelten für Privatpersonen und Unternehmen (Verbraucher und Unternehmer).</p>
+
+        <p><strong>2. Vertragsschluss</strong><br>
+          Der Vertrag kommt zustande, sobald Ihre Anfrage durch PeakBeats per E-Mail oder telefonisch bestätigt wird.
+          Angebote sind unverbindlich, solange keine Bestätigung erfolgt ist.</p>
+
+        <p><strong>3. Leistungen / Vermietungsumfang</strong><br>
+          PeakBeats stellt die in der Anfrage ausgewählten Geräte und optional gebuchte Services (Aufbau, Technik) zur
+          Verfügung. Änderungen der Leistung müssen vorher abgesprochen werden.</p>
+
+        <p><strong>4. Preise & Zahlung</strong><br>
+          Alle Preise verstehen sich in Euro (€) und sind Richtwerte, zzgl. Lieferung und Aufbau, soweit nicht anders
+          vereinbart. Zahlungen erfolgen per Überweisung oder PayPal, sofern nicht anders vereinbart. Die Buchung gilt
+          erst nach vollständiger Bezahlung als bestätigt.</p>
+
+        <p><strong>5. Lieferung, Aufbau & Rückgabe</strong><br>
+          Lieferung und Aufbau erfolgen nur, wenn gebucht. Die Abholung bzw. Rückgabe erfolgt zum vereinbarten Termin.
+          Schäden oder Verluste während der Mietdauer trägt der Mieter, es sei denn, PeakBeats oder deren Personal
+          handeln grob fahrlässig.</p>
+
+        <p><strong>6. Selbstbeteiligung & Kaution</strong><br>
+          Im Schadensfall fällt eine Selbstbeteiligung von bis zu 350€ an. Bei Vermietung erheben wir eine rückzahlbare
+          Kaution, deren Höhe abhängig vom Paket ist. Ohne Kaution kann keine Vermietung erfolgen.</p>
+
+        <p><strong>7. Widerrufsrecht / Rücktritt</strong><br>
+          Verbrauchern steht ein Widerrufsrecht nach den gesetzlichen Bestimmungen zu. Für Dienstleistungen, die zu
+          einem bestimmten Termin erbracht werden, kann der Vertrag nur nach Absprache storniert oder verschoben werden.
+        </p>
+
+        <p><strong>8. Haftung</strong><br>
+          PeakBeats haftet nur für Vorsatz und grobe Fahrlässigkeit. Für einfache Fahrlässigkeit haftet PeakBeats nur
+          bei Verletzung wesentlicher Vertragspflichten (Kardinalpflichten).</p>
+
+        <p><strong>9. Datenschutz</strong><br>
+          Es gilt unsere Datenschutzerklärung. Personenbezogene Daten werden nur zur Vertragsabwicklung genutzt.</p>
+
+        <p><strong>10. Schlussbestimmungen</strong><br>
+          Es gilt deutsches Recht. Gerichtsstand ist Oldenburg, soweit gesetzlich zulässig.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* ==================== PeakBeats Frontend JS ==================== */
+
+    // ================== CONFIG ==================
+    const YOUR_LOCATION = { lat: 53.11772, lng: 8.22109 }; // 26133 Oldenburg, DE
+    let deliveryPrice = 0;
+
+    // ================== PREISE ==================
+    async function loadPrices() {
+      try {
+        const res = await fetch("http://localhost:8080/api/prices");
+        if (!res.ok) throw new Error('Nicht OK');
+        const prices = await res.json();
+
+        Object.entries(prices).forEach(([pkg, price]) => {
+          const el = document.querySelector(`.price-card[data-package="${pkg}"] strong`);
+          if (el) el.textContent = price + "€";
+        });
+
+        console.log("Preise geladen:", prices);
+        applyPricesUI();
+        syncPackagesToForm();
+        calcEstimate();
+      } catch (err) {
+        console.error("Fehler beim Laden der Preise:", err);
+      }
+    }
+
+    // Paket-Basispreise
+    function basePrice(pkg) {
+      if (!pkg) return 0;
+
+      // Admin-Überschreibungen holen
+      const prices = getPrices();
+
+      // Falls Preis im Admin gesetzt ist → den nehmen
+      if (prices[pkg] != null && !isNaN(prices[pkg])) {
+        return Number(prices[pkg]);
+      }
+
+      // Sonst versuchen, aus dem DOM zu lesen
+      const el = document.querySelector(`.price-card[data-package="${pkg}"] strong`);
+      if (el) {
+        const p = parseFloat(el.textContent.replace('€', '').trim());
+        if (!isNaN(p)) return p;
+      }
+
+      // Fallback: Standardwerte
+      // switch (pkg) {
+      //   case "Small Gig": return 99;
+      //   case "Party Pro": return 149;
+      //   case "Open Air": return 249;
+      //   case "Individuell": return 99;
+      //   default: return 0;
+      // }
+    }
+
+    function techPrice(val) {
+      if (val === 'setup') return 69;
+      if (val === 'full') return 199;
+      return 0;
+    }
+
+    // ================== LIEFERKOSTEN ================== 
+    const API_URL = "http://localhost:8080/api/delivery"; // Spring Boot Backend-URL
+
+    // globale Variable, damit Schätzung darauf zugreifen kann
+    let deliveryPriceValue = 0;
+
+    async function calculateDelivery(zip) {
+      const deliveryEl = document.getElementById("deliveryPrice");
+
+      if (!zip) {
+        deliveryEl.innerHTML = `Lieferung: – <br>
+      <small class="muted">Preis pro Anlieferung (Hin-/Rücktour kombiniert).</small>`;
+        deliveryPriceValue = 0;
+        calcEstimate(); // Schätzung aktualisieren
+        return;
+      }
+
+      try {
+        const res = await fetch(`${API_URL}?zip=${zip}`);
+        if (!res.ok) throw new Error("Fehler beim Backend");
+
+        const data = await res.json();
+
+        if (data.notAvailable || data.km === 0) {
+          deliveryEl.innerHTML = `Lieferung nicht möglich <br>
+        <small class="muted">Preis pro Anlieferung (Hin-/Rücktour kombiniert).</small>`;
+          deliveryPriceValue = 0;
+        } else {
+          deliveryEl.innerHTML = `Lieferung: ${data.price}€ (${data.km} km) <br>
+        <small class="muted">Preis pro Anlieferung (Hin-/Rücktour kombiniert).</small>`;
+          deliveryPriceValue = data.price; // Wert für Schätzung speichern
+        }
+
+        calcEstimate(); // Schätzung aktualisieren
+      } catch (err) {
+        console.error("Fehler bei der Lieferung:", err);
+        deliveryEl.innerHTML = `Lieferung nicht möglich <br>
+      <small class="muted">Preis pro Anlieferung (Hin-/Rücktour kombiniert).</small>`;
+        deliveryPriceValue = 0;
+        calcEstimate(); // Schätzung aktualisieren
+      }
+    }
+
+    // ================== SCHÄTZUNG ==================
+    const form = document.querySelector('.form');
+    const estimateEl = document.getElementById('estimateValue');
+    const startDateEl = form?.querySelector('input[name="startDate"]');
+    const endDateEl = form?.querySelector('input[name="endDate"]');
+    const packageEl = form?.querySelector('select[name="package"]');
+    const techEl = form?.querySelector('select[name="tech"]');
+
+    function getBookingDays(start, end) {
+      const msPerDay = 1000 * 60 * 60 * 24;
+      const diff = Math.round((end - start) / msPerDay);
+      return diff > 0 ? diff : 1;
+    }
+
+    function calcEstimate() {
+      if (!estimateEl) return;
+      const pkg = packageEl?.value || '';
+      let base = basePrice(pkg);
+
+      // Tage berechnen
+      let days = 1;
+      if (startDateEl?.value && endDateEl?.value) {
+        const start = new Date(startDateEl.value);
+        const end = new Date(endDateEl.value);
+        days = getBookingDays(start, end);
+      }
+
+      // Preisberechnung kumulativ mit Mindestgrenze
+      let total = 0;
+      if (days > 0 && base > 0) {
+        const minDaily = base * 0.4; // niemals weniger als 40 % vom Basispreis
+        let dailyPrice = base;
+
+        for (let i = 0; i < days; i++) {
+          if (i === 0) {
+            total += dailyPrice; // erster Tag voller Preis
+          } else {
+            dailyPrice *= 0.7; // jeden weiteren Tag 30 % günstiger
+            if (dailyPrice < minDaily) dailyPrice = minDaily;
+            total += dailyPrice;
+          }
+        }
+      }
+
+      // Add-ons drauf
+      total += deliveryPriceValue; // Lieferkosten
+      total += techPrice(techEl?.value);
+
+      estimateEl.textContent = total ? `${total.toFixed(2)}€ gesamt` : '–';
+    }
+
+    // Event Listener auf PLZ-Eingabe
+    document.addEventListener("DOMContentLoaded", () => {
+      const zipInput = document.getElementById("zip");
+      if (!zipInput) return;
+
+      zipInput.addEventListener("blur", e => {
+        const zip = e.target.value.trim();
+        calculateDelivery(zip);
+      });
+
+      // auch bei Änderung anderer Felder Schätzung aktualisieren
+      [startDateEl, endDateEl, packageEl, techEl].forEach(el => {
+        el?.addEventListener('change', calcEstimate);
+      });
+    });
+
+    // ================== MOBILE NAV ==================
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    const burger = document.querySelector('.burger');
+
+    if (navToggle) {
+      navToggle.addEventListener('click', () => {
+        const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+        navToggle.setAttribute('aria-expanded', String(!expanded));
+        navLinks.classList.toggle('open');
+        burger.classList.toggle('open');
+      });
+    }
+
+    // Smooth scroll for in-page links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if (el) {
+          e.preventDefault();
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          navLinks?.classList.remove('open');
+          burger?.classList.remove('open');
+          navToggle?.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+
+    // ================== DATUM ==================
+    const DAY = 24 * 60 * 60 * 1000;
+
+    function toYMDLocal(d) {
+      // lokale YYYY-MM-DD ohne UTC-Verschiebung
+      const y = d.getFullYear();
+      const m = String(d.getMonth() + 1).padStart(2, '0');
+      const day = String(d.getDate()).padStart(2, '0');
+      return `${y}-${m}-${day}`;
+    }
+
+    function today0() {
+      const t = new Date();
+      t.setHours(0, 0, 0, 0);
+      return t;
+    }
+
+    function setMinDates() {
+      if (!startDateEl || !endDateEl) return;
+
+      const today = today0();
+      // Start: heute oder später
+      startDateEl.min = toYMDLocal(today);
+
+      // End: mindestens morgen (oder Start+1, wenn Start schon gesetzt)
+      const base = startDateEl.value ? new Date(startDateEl.value) : today;
+      base.setHours(0, 0, 0, 0);
+      const minEnd = new Date(base.getTime() + DAY);
+      endDateEl.min = toYMDLocal(minEnd);
+    }
+
+    function enforceStartNotPast() {
+      if (!startDateEl) return;
+      const today = today0();
+      if (startDateEl.value) {
+        const s = new Date(startDateEl.value);
+        s.setHours(0, 0, 0, 0);
+        if (s < today) {
+          startDateEl.value = toYMDLocal(today); // automatisch korrigieren
+        }
+      }
+    }
+
+    function enforceEndAfterStart() {
+      if (!startDateEl || !endDateEl) return;
+      if (!startDateEl.value) return;
+
+      const s = new Date(startDateEl.value); s.setHours(0, 0, 0, 0);
+      const minEnd = new Date(s.getTime() + DAY); // Ende MUSS nach Start liegen
+      if (endDateEl.value) {
+        const e = new Date(endDateEl.value); e.setHours(0, 0, 0, 0);
+        if (e < minEnd) {
+          endDateEl.value = toYMDLocal(minEnd); // automatisch korrigieren
+        }
+      }
+      // min-Attribut des Enddatums immer nachziehen
+      endDateEl.min = toYMDLocal(minEnd);
+    }
+
+    function validateDates() {
+      if (!startDateEl || !endDateEl) return;
+      startDateEl.setCustomValidity("");
+      endDateEl.setCustomValidity("");
+
+      const today = today0();
+      const s = startDateEl.value ? new Date(startDateEl.value) : null;
+      const e = endDateEl.value ? new Date(endDateEl.value) : null;
+      if (s) s.setHours(0, 0, 0, 0);
+      if (e) e.setHours(0, 0, 0, 0);
+
+      if (s && s < today) {
+        startDateEl.setCustomValidity("Startdatum darf nicht in der Vergangenheit liegen.");
+      }
+      if (s && e && e <= s) {
+        endDateEl.setCustomValidity("Enddatum muss nach dem Startdatum liegen.");
+      }
+    }
+
+    function initDateLogic() {
+      if (!startDateEl || !endDateEl) return;
+
+      // Initiale Mindestwerte setzen + evtl. bestehende Werte korrigieren
+      setMinDates();
+      enforceStartNotPast();
+      enforceEndAfterStart();
+      validateDates();
+
+      // Events
+      startDateEl.addEventListener('change', () => {
+        enforceStartNotPast();
+        enforceEndAfterStart();
+        validateDates();
+        calcEstimate?.();
+      });
+      endDateEl.addEventListener('change', () => {
+        enforceEndAfterStart();
+        validateDates();
+        calcEstimate?.();
+      });
+
+      // Falls User tippt statt Picker nutzt
+      startDateEl.addEventListener('input', () => {
+        enforceStartNotPast();
+        enforceEndAfterStart();
+        validateDates();
+      });
+      endDateEl.addEventListener('input', () => {
+        enforceEndAfterStart();
+        validateDates();
+      });
+    }
+
+    // Aufrufen, sobald DOM bereit & Formular existiert
+    document.addEventListener('DOMContentLoaded', initDateLogic);
+
+    // ================== ZIP EVENT ==================
+    // Event Listener auf PLZ-Eingabe
+    document.addEventListener("DOMContentLoaded", () => {
+      const zipInput = document.querySelector('input[name="zip"]');
+      if (!zipInput) return;
+
+      zipInput.addEventListener("blur", e => {
+        const zip = e.target.value.trim();
+        calculateDelivery(zip);
+      });
+    });
+
+    // ================== PACKAGE SELECTION ==================
+    document.querySelectorAll('[data-package]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const select = document.querySelector('select[name="package"]');
+        if (select) select.value = btn.dataset.package;
+        calcEstimate();
+      });
+    });
+
+    // ================== FILTER ==================
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const products = document.querySelectorAll('.product-card');
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+        const f = btn.dataset.filter;
+        products.forEach(card => {
+          const show = f === 'all' || card.dataset.category === f;
+          card.style.display = show ? '' : 'none';
+        });
+      });
+    });
+
+    // ================== Pflichtfelder brereich ==================
+    // Events binden
+    if (startDateEl) startDateEl.addEventListener("change", () => { validateDates(); calcEstimate(); });
+    if (endDateEl) endDateEl.addEventListener("change", () => { validateDates(); calcEstimate(); });
+    if (packageEl) packageEl.addEventListener("change", calcEstimate);
+    if (techEl) techEl.addEventListener("change", calcEstimate);
+
+    // Erste Berechnung
+    calcEstimate();
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.querySelector('.form');
+      const estimateEl = document.getElementById('estimateValue');
+
+      if (!form) return;
+
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        console.log("Submit ausgelöst");
+
+        let ok = true;
+        let firstErrorField = null;
+
+        // Alte Fehler zurücksetzen
+        form.querySelectorAll('.field .error, .policy-box .error').forEach(el => el.textContent = '');
+        form.querySelectorAll('.field, .policy-box').forEach(el => el.classList.remove('error'));
+
+        // Pflichtfelder
+        const required = [
+          ['vorname', 'Bitte Vornamen angeben.'],
+          ['nachname', 'Bitte Nachnamen angeben.'],
+          ['email', 'Bitte gültige E-Mail angeben.'],
+          ['startDate', 'Bitte Start Datum wählen.'],
+          ['endDate', 'Bitte End Datum wählen.'],
+          ['package', 'Bitte gewünschtes Paket wählen.']
+        ];
+
+        const packageField = form.querySelector('[name="package"]');
+        if (packageField?.value === 'Individuell') {
+          required.push(['message', 'Bitte beschreibe deine individuellen Wünsche.']);
+        }
+
+        required.forEach(([name, msg]) => {
+          const field = form.querySelector(`[name="${name}"]`);
+          if ((field?.type === 'checkbox' && !field.checked) || !field?.value) {
+            ok = false;
+            field?.closest('.field')?.classList.add('error');
+            field?.closest('.field')?.querySelector('.error')?.append(msg);
+            if (!firstErrorField) firstErrorField = field;
+          }
+        });
+
+        // Techniker-Lieferpflicht prüfen
+        const zipField = form.querySelector('input[name="zip"]');
+        if (techEl?.value !== 'none') {
+          if (!zipField?.value) {
+            const zipFieldContainer = zipField.closest('.field');
+
+            // Fehlermeldung anzeigen
+            let errorEl = zipFieldContainer.querySelector('.error');
+            if (!errorEl) {
+              // Falls kein <small class="error"> existiert, erstelle eins
+              errorEl = document.createElement('small');
+              errorEl.classList.add('error');
+              zipFieldContainer.appendChild(errorEl);
+            }
+
+            errorEl.textContent = 'Lieferung erforderlich, da Techniker ausgewählt.';
+            zipFieldContainer.classList.add('error');
+            ok = false;
+            if (!firstErrorField) firstErrorField = zipField;
+          }
+        }
+
+        // Email prüfen
+        const emailField = form.querySelector('[name="email"]');
+        if (emailField?.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value)) {
+          ok = false;
+          emailField.closest('.field')?.classList.add('error');
+          emailField.closest('.field')?.querySelector('.error')?.append(' Format ungültig.');
+          if (!firstErrorField) firstErrorField = emailField;
+        }
+
+        // Checkbox prüfen
+        const policyField = form.querySelector('[name="liability"]');
+        if (policyField && !policyField.checked) {
+          ok = false;
+          const policyBox = policyField.closest('.policy-box');
+          policyBox.classList.add('error');
+          policyBox.querySelector('.error').textContent = 'Bitte Zustimmung zur Selbstbeteiligung bestätigen.';
+          if (!firstErrorField) firstErrorField = policyField;
+        }
+
+        if (!ok) {
+          firstErrorField?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          firstErrorField?.focus();
+          return;
+        }
+
+        // Formular korrekt ausgefüllt -> Daten sammeln
+        const formData = {};
+        form.querySelectorAll('input, select, textarea').forEach(el => {
+          formData[el.name] = el.type === 'checkbox' ? el.checked : el.value;
+        });
+
+        // Lieferpreis & geschätzter Preis hinzufügen
+        formData.deliveryPrice = deliveryPrice || 0;
+        formData.estimate = estimateEl?.textContent || '';
+
+        // Reihenfolge definieren
+        const fieldOrder = [
+          'vorname', 'nachname', 'email', 'phone',
+          'startDate', 'endDate',
+          'package', 'tech',
+          'message', 'zip',
+          'deliveryPrice', 'estimate', 'liability'
+        ];
+
+        // Neues Objekt nach Reihenfolge aufbauen
+        const sortedFormData = {};
+        fieldOrder.forEach(key => {
+          if (key in formData) {
+            sortedFormData[key] = formData[key];
+          }
+        });
+
+        // Loggen
+        console.log('Formular abgeschickt:', JSON.stringify(sortedFormData, null, 2));
+
+        // Erfolgsmeldung einblenden
+        const successMsg = form.querySelector('.form-success');
+        if (successMsg) successMsg.hidden = false;
+
+        // Formular zurücksetzen
+        form.reset();
+
+        // Schätzung & Lieferpreis neu berechnen
+        if (typeof calcEstimate === 'function') calcEstimate();
+        if (typeof calculateDelivery === 'function') {
+          const zipInput = form.querySelector('input[name="zip"]');
+          if (zipInput) calculateDelivery(zipInput.value.trim());
+        }
+
+        // Nach 5 Sekunden Erfolgsmeldung ausblenden
+        setTimeout(() => { if (successMsg) successMsg.hidden = true; }, 5000);
+      });
+    });
+
+    // ================== POP UPS ==================
+    // Impressum
+    const impressumLinks = document.querySelectorAll('.impressum-link');
+    const impressumModal = document.getElementById('impressum-modal');
+    const closeImpressum = document.getElementById('close-impressum');
+    impressumLinks.forEach(link => { link.addEventListener('click', e => { e.preventDefault(); impressumModal.style.display = 'flex'; }); });
+    closeImpressum.addEventListener('click', () => { impressumModal.style.display = 'none'; });
+    window.addEventListener('click', e => { if (e.target === impressumModal) impressumModal.style.display = 'none'; });
+
+    // Datenschutz
+    const datenschutzLinks = document.querySelectorAll('.datenschutz-link');
+    const datenschutzModal = document.getElementById('datenschutz-modal');
+    const closeDatenschutz = document.getElementById('close-datenschutz');
+    datenschutzLinks.forEach(link => { link.addEventListener('click', e => { e.preventDefault(); datenschutzModal.style.display = 'flex'; }); });
+    closeDatenschutz.addEventListener('click', () => { datenschutzModal.style.display = 'none'; });
+    window.addEventListener('click', e => { if (e.target === datenschutzModal) datenschutzModal.style.display = 'none'; });
+
+    // AGBs
+    const agbLinks = document.querySelectorAll('.agb-link');
+    const agbModal = document.getElementById('agb-modal');
+    const closeAgb = document.getElementById('close-agb');
+    agbLinks.forEach(link => { link.addEventListener('click', e => { e.preventDefault(); agbModal.style.display = 'flex'; }); });
+    closeAgb.addEventListener('click', () => { agbModal.style.display = 'none'; });
+    window.addEventListener('click', e => { if (e.target === agbModal) agbModal.style.display = 'none'; });
+
+    // ================== ADMIN PANEL ==================
+
+    // ================== CONFIG ==================
+    const ADMIN_PARAM = 'peakbeats';
+    const BACKEND_URL = 'http://localhost:8080/api/admin';
+    let adminToken = null;
+    let globalPrices = {};
+    let globalBlocked = [];
+
+    // ================== ADMIN PANEL DYNAMISCH ERSTELLEN ==================
+    function createAdminPanel() {
+      const dialog = document.createElement("dialog");
+      dialog.id = "adminPanel";
+      dialog.innerHTML = `
+    <form method="dialog" class="admin">
+      <h3>Admin: Verfügbarkeit</h3>
+      <p class="muted">Produkte sperren oder Preise ändern (gespeichert im Backend)</p>
+      <div class="admin-list"></div>
+      <div class="admin-actions">
+        <button value="cancel" class="btn">Schließen</button>
+        <button id="adminReset" class="btn btn--ghost" type="button">Zurücksetzen</button>
+      </div>
+    </form>
+  `;
+      document.body.appendChild(dialog);
+
+      const form = dialog.querySelector("form");
+      const adminResetBtn = dialog.querySelector("#adminReset");
+
+      // Wenn Admin-Panel geschlossen wird → speichern
+      form.addEventListener("close", saveAdminData);
+
+      // Reset → Backend zurücksetzen
+      adminResetBtn.addEventListener("click", async () => {
+        if (!adminToken) return alert("Nicht eingeloggt!");
+        if (!confirm("Alles zurücksetzen?")) return;
+        try {
+          await fetch(`${BACKEND_URL}/reset`, {
+            method: 'POST',
+            headers: { 'Authorization': adminToken }
+          });
+          await fetchAdminData();
+          buildAdminList();
+          alert("Alle Preise und Sperren wurden zurückgesetzt.");
+        } catch (err) {
+          console.error("Fehler beim Reset:", err);
+          alert("Reset fehlgeschlagen!");
+        }
+      });
+    }
+
+    // ================== LOGIN ==================
+    async function loginAdmin(password) {
+      try {
+        const res = await fetch(`${BACKEND_URL}/login`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username: 'admin', password })
+        });
+        if (!res.ok) return false;
+        const data = await res.json();
+        adminToken = data.token;
+        await fetchAdminData();
+        return true;
+      } catch (err) {
+        console.error("Fehler beim Login:", err);
+        return false;
+      }
+    }
+
+    // ================== DATEN VOM BACKEND LADEN ==================
+    async function fetchAdminData() {
+      if (!adminToken) return;
+      try {
+        const res = await fetch(`${BACKEND_URL}/data`, {
+          headers: { 'Authorization': adminToken }
+        });
+        if (!res.ok) throw new Error("Unauthorized");
+        const data = await res.json();
+        globalPrices = data.prices || {};
+        globalBlocked = data.blocked || [];
+        applyPricesUI();
+        applyBlockedUI();
+        syncPackagesToForm();
+      } catch (err) {
+        console.error("Fehler beim Laden der Admin-Daten:", err);
+      }
+    }
+
+    // ================== SPEICHERN ==================
+    async function saveAdminData() {
+      if (!adminToken) return;
+      try {
+        await fetch(`${BACKEND_URL}/save`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': adminToken
+          },
+          body: JSON.stringify({
+            prices: globalPrices,
+            blocked: globalBlocked
+          })
+        });
+        console.log("Admin-Daten gespeichert.");
+      } catch (err) {
+        console.error("Fehler beim Speichern:", err);
+      }
+    }
+
+    // ================== GETTER / SETTER ==================
+    function getPrices() { return globalPrices; }
+    function setPrices(prices) { globalPrices = prices; saveAdminData(); }
+    function getBlocked() { return globalBlocked; }
+    function setBlocked(arr) { globalBlocked = arr; saveAdminData(); }
+
+    // ================== UI ==================
+    function applyPricesUI() {
+      const prices = getPrices();
+      document.querySelectorAll('.price-card').forEach(card => {
+        const title = card.querySelector('h3')?.textContent?.trim();
+        const priceEl = card.querySelector('strong');
+        if (!title || !priceEl) return;
+        if (!priceEl.dataset.original) priceEl.dataset.original = priceEl.textContent.replace('€', '').trim();
+        priceEl.textContent = prices[title] != null ? prices[title] : priceEl.dataset.original;
+      });
+    }
+
+    function applyBlockedUI() {
+      const blocked = new Set(getBlocked());
+      // Produkte
+      document.querySelectorAll('.product-card').forEach(card => {
+        const sku = card.dataset.sku;
+        if (!sku) return;
+        let overlay = card.querySelector('.not-available');
+        if (!overlay) overlay = Object.assign(document.createElement('div'), { className: 'not-available', textContent: 'Nicht verfügbar' });
+        if (!card.querySelector('.not-available')) card.appendChild(overlay);
+        if (blocked.has(sku)) {
+          card.classList.add('is-blocked');
+          overlay.style.display = 'block';
+          card.style.pointerEvents = 'none';
+        } else {
+          card.classList.remove('is-blocked');
+          overlay.style.display = 'none';
+          card.style.pointerEvents = '';
+        }
+      });
+      // Pakete
+      document.querySelectorAll('.price-card').forEach(card => {
+        const title = card.querySelector('h3')?.textContent?.trim();
+        if (!title) return;
+        let overlay = card.querySelector('.not-available');
+        if (!overlay) overlay = Object.assign(document.createElement('div'), { className: 'not-available' });
+        if (!card.querySelector('.not-available')) card.appendChild(overlay);
+        if (blocked.has(title)) {
+          card.classList.add('is-blocked');
+          overlay.style.display = 'block';
+          card.style.pointerEvents = 'none';
+        } else {
+          card.classList.remove('is-blocked');
+          overlay.style.display = 'none';
+          card.style.pointerEvents = '';
+        }
+      });
+    }
+
+    function syncPackagesToForm() {
+      const blocked = new Set(getBlocked());
+      const select = document.querySelector('select[name="package"]');
+      if (!select) return;
+      [...select.options].forEach(opt => {
+        const title = opt.value.trim();
+        if (!title) return;
+        if (blocked.has(title)) {
+          opt.disabled = true;
+          opt.textContent = `${title} (nicht verfügbar)`;
+        } else {
+          opt.disabled = false;
+          opt.textContent = title;
+        }
+      });
+      if (blocked.has(select.value)) select.value = "";
+    }
+
+    // ================== ADMIN PANEL LIST ==================
+    function buildAdminList() {
+      const adminDialog = document.getElementById('adminPanel');
+      const adminList = adminDialog.querySelector('.admin-list');
+      adminList.innerHTML = '';
+      const blocked = new Set(getBlocked());
+      const prices = getPrices();
+
+      // Mietpakete
+      document.querySelectorAll('.price-card').forEach(card => {
+        const title = card.querySelector('h3')?.textContent?.trim();
+        const row = document.createElement('div');
+        row.className = 'admin-row';
+        row.innerHTML = `
+      <div><strong>${title}</strong> <span class="sku">(Paket)</span></div>
+      <label>Sperren <input type="checkbox" class="switch" ${blocked.has(title) ? 'checked' : ''} /></label>
+      <label>Preis <input type="number" class="price-input" value="${prices[title] ?? ''}" /> €</label>
+    `;
+
+        row.querySelector('.switch').addEventListener('change', e => {
+          const current = new Set(getBlocked());
+          if (e.target.checked) current.add(title); else current.delete(title);
+          setBlocked([...current]);
+          applyBlockedUI();
+        });
+
+        row.querySelector('.price-input').addEventListener('input', e => {
+          const p = getPrices();
+          if (e.target.value === '') delete p[title]; else p[title] = Number(e.target.value) || 0;
+          setPrices(p);
+          applyPricesUI();
+        });
+
+        adminList.appendChild(row);
+      });
+
+      // Produkte
+      document.querySelectorAll('.product-card').forEach(card => {
+        const sku = card.dataset.sku;
+        const title = card.querySelector('h3')?.textContent?.trim() || sku;
+        const row = document.createElement('div');
+        row.className = 'admin-row';
+        row.innerHTML = `
+      <div><strong>${title}</strong> <span class="sku">${sku}</span></div>
+      <label>Sperren <input type="checkbox" class="switch" ${blocked.has(sku) ? 'checked' : ''} /></label>
+    `;
+        row.querySelector('.switch').addEventListener('change', e => {
+          const current = new Set(getBlocked());
+          if (e.target.checked) current.add(sku); else current.delete(sku);
+          setBlocked([...current]);
+          applyBlockedUI();
+        });
+        adminList.appendChild(row);
+      });
+    }
+
+    // ================== ADMIN ÖFFNEN ==================
+    async function openAdmin() {
+      const pw = prompt('Admin-Passwort eingeben:');
+      if (!pw) return;
+      const ok = await loginAdmin(pw);
+      if (!ok) return alert("Login fehlgeschlagen!");
+      buildAdminList();
+      document.getElementById('adminPanel').showModal();
+    }
+
+    // ================== SHORTCUT & URL ==================
+    document.addEventListener('keydown', e => {
+      if (e.altKey && (e.key === 'a' || e.key === 'A')) openAdmin();
+    });
+
+    (function () {
+      const params = new URLSearchParams(location.search);
+      if (params.get('admin') === ADMIN_PARAM) openAdmin();
+    })();
+
+    // ================== INIT ==================
+    createAdminPanel();
+    applyBlockedUI();
+    applyPricesUI();
+    syncPackagesToForm();
+
+  </script>
+
+
+</body>
+
+</html>
